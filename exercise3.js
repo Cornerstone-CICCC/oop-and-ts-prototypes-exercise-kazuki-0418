@@ -23,3 +23,21 @@ class Person {
 // Test the Person constructor function
 const john = new Person("John", "Doe");
 john.greet();  // Output: Hello, my name is John Doe.
+
+// Solution:
+function PersonPrototype(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+}
+
+Person.prototype.getFullName = function() {
+    return `${this.firstName} ${this.lastName}`;
+}
+
+Person.prototype.greet = function() {
+    console.log(`Hello, my name is ${this.getFullName()}.`);
+}
+
+// Test the Person prototype
+const johnPrototype = new Person("John", "Doe");
+johnPrototype.greet();  // Output: Hello, my name is John Doe.
